@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -8,31 +7,37 @@ import { DropzoneModule } from 'ngx-dropzone-wrapper';
 import { LaddaModule } from 'angular2-ladda';
 import { PubSubModule } from 'angular2-pubsub';
 import { ToastModule } from 'ng2-toastr/src/toast.module';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { PriceRialPipe } from './pipes/priceRial.pipe';
-import { PriceTomanPipe } from './pipes/priceToman.pipe';
-import { JalaliPipe } from './pipes/jalali.pipe';
 import { CKEditorModule } from 'ngx-ckeditor';
-import { IsParentPipe } from './pipes/isParent.pipe';
-import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper/dist/lib/dropzone.module';
-import { ICheckWithModelDirective } from '../control-panel/infrastructure/directives/icheckWithModel.directive';
-import { BadgeComponent } from './components/badge-component/badge-component.component';
-import { OrderStatusPipe } from './pipes/order-status.pipe';
-import { OrderStatusColorPipe } from './pipes/order-status-color.pipe';
-import { DefaultFilterPipe } from './pipes/filter.pipe';
-import { LikeFilterPipe } from './pipes/filter-like.pipe';
-import { SlugPipe } from './pipes/slug.pipe';
+import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { ModalModule } from 'ngx-modal';
-import { InvoiceStatusColorPipe } from './pipes/invoice-status-color.pipe';
-import { InvoiceStatusPipe } from './pipes/invoice-status.pipe';
 import { RecaptchaModule, RecaptchaLoaderService } from 'ng2-recaptcha';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
-import { RadioComponent } from './components/radio/radio.component';
-import { InvoiceTypePipe } from './pipes/invoice-type.pipe';
 import { AgmCoreModule } from '@agm/core/core.module';
-import { ModalLoginComponent } from '../authentication/modal/login/modal-login.component';
-
+import {
+  SummernoteDirective,
+  ICheckDirective,
+  ICheckWithModelDirective,
+  TagsInputDirective,
+  NestableDirective,
+  TagsInputWithModelDirective
+} from './directives';
+import {
+  IsParentPipe,
+  PriceRialPipe,
+  PriceTomanPipe,
+  OrderStatusPipe,
+  OrderStatusColorPipe,
+  InvoiceStatusPipe,
+  InvoiceTypePipe,
+  InvoiceStatusColorPipe,
+  JalaliPipe,
+  DefaultFilterPipe,
+  LikeFilterPipe,
+  SlugPipe
+} from './pipes';
+import { CheckboxComponent, RadioComponent, BadgeComponent } from './components';
+import { DropZoneEronConfig } from './config/DropZoneConfiguration';
 
 @NgModule({
   declarations: [
@@ -56,16 +61,14 @@ import { ModalLoginComponent } from '../authentication/modal/login/modal-login.c
     LikeFilterPipe,
     SlugPipe,
     CheckboxComponent,
-    RadioComponent,
-    ModalLoginComponent
+    RadioComponent
   ],
   imports: [
     RouterModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    DropzoneModule.forChild(),
-    Ng2SmartTableModule,
+    DropzoneModule, // .forChild()
     LaddaModule,
     CurrencyMaskModule,
     NgxPaginationModule,
@@ -93,7 +96,6 @@ import { ModalLoginComponent } from '../authentication/modal/login/modal-login.c
     TagsInputWithModelDirective,
     BadgeComponent,
     CheckboxComponent,
-    ModalLoginComponent,
     RadioComponent,
     NestableDirective,
     IsParentPipe,
@@ -108,7 +110,6 @@ import { ModalLoginComponent } from '../authentication/modal/login/modal-login.c
     DefaultFilterPipe,
     LikeFilterPipe,
     SlugPipe,
-    Ng2SmartTableModule,
     LaddaModule,
     CurrencyMaskModule,
     NgxPaginationModule,
@@ -117,7 +118,7 @@ import { ModalLoginComponent } from '../authentication/modal/login/modal-login.c
     RecaptchaModule,
     ToastModule,
     PubSubModule,
-    AgmCoreModule,
+    AgmCoreModule
   ],
   providers: [
     {
@@ -126,6 +127,4 @@ import { ModalLoginComponent } from '../authentication/modal/login/modal-login.c
     }
   ]
 })
-export class BaseModule {
-
-}
+export class BaseModule {}

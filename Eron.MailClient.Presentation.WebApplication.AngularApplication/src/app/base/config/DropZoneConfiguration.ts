@@ -1,5 +1,5 @@
 import { DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
-import { Api } from '../api';
+import { Api } from '../../../base/api';
 
 export class DropZoneConfiguration {
 
